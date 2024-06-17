@@ -1,0 +1,7 @@
+streamlit
+langchain
+langchain-google_genai
+langchain-huggingface
+langchain-community
+langchain_experimental
+langchain_chroma
