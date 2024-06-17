@@ -48,7 +48,7 @@ question = st.chat_input('Ask your questions here')
 @st.cache_resource    # wrapper so streamlit doesn't need to reload it each time, makes it faster
 def load_pdf():
     
-    DATA_PATH = "docs"
+    DATA_PATH = "data"
     loader = DirectoryLoader(DATA_PATH, glob="*.pdf")
     docs = loader.load()
 
