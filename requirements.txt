@@ -1,6 +1,7 @@
 streamlit
 langchain
-langchain-google_genai
+langchain_core
+langchain_openai
 langchain-huggingface
 langchain-community
 langchain_experimental
