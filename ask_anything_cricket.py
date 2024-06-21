@@ -9,6 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 import streamlit as st
 import os
+import shutil
 
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
@@ -64,12 +65,17 @@ def load_pdf():
 
     docs = text_splitter.split_documents(docs)
 
+    CHROMA_PATH = "chromadb_cricket"
+    # Clear out the database first.
+    if os.path.exists(CHROMA_PATH):
+        shutil.rmtree(CHROMA_PATH)
+
     # if there's an error with Chroma.from_documents, remove some docs from data folder and try again
-    vectorstore = Chroma.from_documents(docs, embeddings , persist_directory="chromadb_cricket")
+    vectorstore = Chroma.from_documents(docs, embeddings , persist_directory=CHROMA_PATH)
 
     retriever = vectorstore.as_retriever(search_kwargs={'k': 5})
 
-# Advanced RAG - Query Rewriting and Prompt Compression
+    # Advanced RAG - Query Rewriting and Prompt Compression
     # Query Rewriting using LLM
     retriever_from_llm = RePhraseQueryRetriever.from_llm(   # using llm to rephrase query & make it more compact
         retriever=retriever, llm=llm
