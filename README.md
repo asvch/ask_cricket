@@ -1,5 +1,5 @@
 ## Advanced Retrieval Augmented Generation (RAG) chatbot to ask questions about the rules of Cricket!
-  - Langchain, Streamlit, and OpenAI API
+  - LangChain, Streamlit, and OpenAI API
   - Query rewriting (pre-retrieval) and prompt compression (post-retrieval)
   - Chroma database as external vectorstore
   - Ragas metrics to evaluate system
