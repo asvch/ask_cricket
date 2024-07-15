@@ -3,7 +3,7 @@
   - Query rewriting (pre-retrieval) and prompt compression (post-retrieval)
   - Chroma database as external vectorstore
   - Ragas metrics to evaluate system
-     - Answer Relevancy score of ~97%, Context Precision score of ~97%, and Context Recall score of 100%
+     - Answer Relevancy score of 97%, Context Precision score of 97%, and Context Recall score of 100%
    
   Note: Can be easily modified to Q&A chatbot for any set of documents.
 
